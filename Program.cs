@@ -44,6 +44,7 @@ builder.Services.AddScoped<UserRepository, UserRepository>();
 builder.Services.AddScoped<DriversRepository, DriversRepository>();
 builder.Services.AddScoped<VehiclesRepository, VehiclesRepository>();
 builder.Services.AddScoped<RoutesRepository, RoutesRepository>();
+builder.Services.AddScoped<SchedulesRepository, SchedulesRepository>();
 
 builder.Services.AddAuthorization();
 

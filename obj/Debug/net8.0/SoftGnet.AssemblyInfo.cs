@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftGnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55f489c5ec88c94ace80d1ba0ad881f2357484c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftGnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftGnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

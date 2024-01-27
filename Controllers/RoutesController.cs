@@ -26,14 +26,14 @@ namespace SoftGnet.Controllers
 
         // GET: api/Routes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Routes>>> GetRoutes()
+        public async Task<ActionResult<IEnumerable<RoutesModel>>> GetRoutes()
         {
             return await _routesRepository.GetRoutesAsync();
         }
 
         // GET: api/Routes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Routes>> GetRoutes(int id)
+        public async Task<ActionResult<RoutesModel>> GetRoutes(int id)
         {
             var routes = await _routesRepository.GetRouteAsync(id);
 
@@ -48,7 +48,7 @@ namespace SoftGnet.Controllers
         // PUT: api/Routes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoutes(int id, Routes routes)
+        public async Task<IActionResult> PutRoutes(int id, RoutesModel routes)
         {
             if (id != routes.Id)
             {
@@ -79,7 +79,7 @@ namespace SoftGnet.Controllers
         // POST: api/Routes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Routes>> PostRoutes(Routes routes)
+        public async Task<ActionResult<RoutesModel>> PostRoutes(RoutesModel routes)
         {
             await _routesRepository.PostRouteAsync(routes);
 
@@ -90,7 +90,7 @@ namespace SoftGnet.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoutes(int id)
         {
-            var routes = await _context.Routes.FindAsync(id);
+            var routes = await _context.RoutesModel.FindAsync(id);
             if (routes == null)
             {
                 return NotFound();
@@ -104,7 +104,7 @@ namespace SoftGnet.Controllers
 
         private bool RoutesExists(int id)
         {
-            return _context.Routes.Any(e => e.Id == id);
+            return _context.RoutesModel.Any(e => e.Id == id);
         }
     }
 }

@@ -9,4 +9,5 @@ public class Vehicles
     public int Make { get; set; }
     public int Capacity { get; set; }
     public bool Active { get; set; }
+    public List<RoutesModel> Routes { get; set; } = new List<RoutesModel>();
 }

@@ -4,10 +4,10 @@ namespace SoftGnet.Repository.Interfaces
 {
     public interface IRoutesInterface
     {
-        public Task<List<Routes>> GetRoutesAsync();
-        public Task<Routes> GetRouteAsync(int id);
-        public Task<Routes> PostRouteAsync(Routes route);
-        public Task<Routes> PutRouteAsync(Routes route);
-        public Task<Routes> DeleteRouteAsync(int id);
+        public Task<List<RoutesModel>> GetRoutesAsync();
+        public Task<RoutesModel> GetRouteAsync(int id);
+        public Task<RoutesModel> PostRouteAsync(RoutesModel route);
+        public Task<RoutesModel> PutRouteAsync(RoutesModel route);
+        public Task<RoutesModel> DeleteRouteAsync(int id);
     }
 }

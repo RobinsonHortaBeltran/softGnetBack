@@ -12,4 +12,6 @@ public class Drivers{
     public string? Zip { get; set; }
     public int Phone { get; set; }
     public bool Active { get; set; }
+
+    public List<RoutesModel> Routes { get; set; } = new List<RoutesModel>();
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj": {}
+    "C:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj": {
+    "C:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj",
         "projectName": "SoftGnet",
-        "projectPath": "c:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj",
+        "projectPath": "C:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\SoftGnet.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\Documents\\WorkSpace\\SoftGnet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",

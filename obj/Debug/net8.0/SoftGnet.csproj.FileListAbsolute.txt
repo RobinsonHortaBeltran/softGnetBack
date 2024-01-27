@@ -254,3 +254,4 @@ c:\Users\ACER\Documents\WorkSpace\SoftGnet\obj\Debug\net8.0\refint\SoftGnet.dll
 c:\Users\ACER\Documents\WorkSpace\SoftGnet\obj\Debug\net8.0\SoftGnet.pdb
 c:\Users\ACER\Documents\WorkSpace\SoftGnet\obj\Debug\net8.0\SoftGnet.genruntimeconfig.cache
 c:\Users\ACER\Documents\WorkSpace\SoftGnet\obj\Debug\net8.0\ref\SoftGnet.dll
+C:\Users\ACER\Documents\WorkSpace\SoftGnet\obj\Debug\net8.0\SoftGnet.sourcelink.json

@@ -14,37 +14,38 @@ namespace SoftGnet.Repository.Repositories
            
         }
 
-        public async Task<Routes> DeleteRouteAsync(int id)
+        public async Task<RoutesModel> DeleteRouteAsync(int id)
         {
-            var route = await _context.Routes.FindAsync(id);
-            _context.Routes.Remove(route);
+            var route = await _context.RoutesModel.FindAsync(id);
+            _context.RoutesModel.Remove(route);
             await _context.SaveChangesAsync();
             return route;
         }
 
-        public async Task<Routes> GetRouteAsync(int id)
+        public async Task<RoutesModel> GetRouteAsync(int id)
         {
-            var route = await _context.Routes.FindAsync(id);
+            var route = await _context.RoutesModel.FindAsync(id);
             return route ?? throw new Exception("Route not found.");
         }
 
-        public async Task<List<Routes>> GetRoutesAsync()
+        public async Task<List<RoutesModel>> GetRoutesAsync()
         {
-            return await _context.Routes.ToListAsync();
+            return await _context.RoutesModel.ToListAsync();
         }
 
-        public async Task<Routes> PostRouteAsync(Routes route)
+        public async Task<RoutesModel> PostRouteAsync(RoutesModel route)
         {
-            await _context.Routes.AddAsync(route);
+            await _context.RoutesModel.AddAsync(route);
             await _context.SaveChangesAsync();
             return route;
         }
 
-        public async Task<Routes> PutRouteAsync(Routes route)
+        public async Task<RoutesModel> PutRouteAsync(RoutesModel route)
         {
-            _context.Routes.Update(route);
+            _context.RoutesModel.Update(route);
             await _context.SaveChangesAsync();
             return route;
         }
+
     }
 }
