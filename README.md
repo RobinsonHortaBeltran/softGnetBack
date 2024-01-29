@@ -14,7 +14,7 @@ Make sure you have the following installed before running the app:
    ```bash
 git clone https://github.com/RobinsonHortaBeltran/softGnetBack.git
 cd sofGnetBack
-  ```
+  
 2. Create database:
 https://www.postgresql.org/download/windows/
 Database configuration
@@ -25,7 +25,6 @@ Host=localhost;Port=5432;Database=apiPg;Username=postgres;Password=0000;
 dotnet tool install --global dotnet-ef
 dotnet ef migrations add InitialCreate --context SoftGnet.Models.ApplicationDbContext
 dotnet ef database update --context SoftGnet.Models.ApplicationDbContext
-```
 
 4. execute project 
 ```bash
