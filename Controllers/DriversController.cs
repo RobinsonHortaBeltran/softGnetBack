@@ -91,8 +91,6 @@ namespace SoftGnet.Controllers
         public async Task<ActionResult<Drivers>> PostDrivers(Drivers drivers)
         {
             await _driversRepository.AddDriverAsync(drivers);
-            await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetDrivers", new { id = drivers.Id }, drivers);
         }
 

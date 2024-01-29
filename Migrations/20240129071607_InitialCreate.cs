@@ -39,10 +39,10 @@ namespace SoftGnet.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Route_id = table.Column<int>(type: "integer", nullable: false),
-                    DayWeek_num = table.Column<int>(type: "integer", nullable: false),
-                    From = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    To = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Route_id = table.Column<string>(type: "text", nullable: true),
+                    DayWeek_num = table.Column<string>(type: "text", nullable: true),
+                    From = table.Column<DateOnly>(type: "date", nullable: false),
+                    To = table.Column<DateOnly>(type: "date", nullable: false),
                     Active = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -90,8 +90,8 @@ namespace SoftGnet.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Driver_id = table.Column<int>(type: "integer", nullable: false),
-                    Vehicle_id = table.Column<int>(type: "integer", nullable: false),
+                    DriverId = table.Column<string>(type: "text", nullable: true),
+                    VehicleId = table.Column<string>(type: "text", nullable: true),
                     Active = table.Column<bool>(type: "boolean", nullable: false),
                     DriversId = table.Column<int>(type: "integer", nullable: true),
                     VehiclesId = table.Column<int>(type: "integer", nullable: true)

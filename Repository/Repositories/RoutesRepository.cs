@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using SoftGnet.Models;
 using SoftGnet.Repository.Interfaces;
@@ -11,7 +13,7 @@ namespace SoftGnet.Repository.Repositories
         public RoutesRepository(ApplicationDbContext context)
         {
             _context = context;
-           
+
         }
 
         public async Task<RoutesModel> DeleteRouteAsync(int id)

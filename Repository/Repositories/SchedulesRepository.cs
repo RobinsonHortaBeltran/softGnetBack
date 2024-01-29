@@ -16,6 +16,7 @@ namespace SoftGnet.Repository.Repositories
         public async Task CreateAsync(Schedules schedule)
         {
             await _context.Schedules.AddAsync(schedule);
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)

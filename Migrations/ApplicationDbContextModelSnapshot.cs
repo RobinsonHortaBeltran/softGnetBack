@@ -76,14 +76,14 @@ namespace SoftGnet.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<int>("Driver_id")
-                        .HasColumnType("integer");
+                    b.Property<string>("DriverId")
+                        .HasColumnType("text");
 
                     b.Property<int?>("DriversId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Vehicle_id")
-                        .HasColumnType("integer");
+                    b.Property<string>("VehicleId")
+                        .HasColumnType("text");
 
                     b.Property<int?>("VehiclesId")
                         .HasColumnType("integer");
@@ -108,17 +108,17 @@ namespace SoftGnet.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("DayWeek_num")
-                        .HasColumnType("integer");
+                    b.Property<string>("DayWeek_num")
+                        .HasColumnType("text");
 
-                    b.Property<DateTime>("From")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("From")
+                        .HasColumnType("date");
 
-                    b.Property<int>("Route_id")
-                        .HasColumnType("integer");
+                    b.Property<string>("Route_id")
+                        .HasColumnType("text");
 
-                    b.Property<DateTime>("To")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("To")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
