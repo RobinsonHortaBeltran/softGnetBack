@@ -33,8 +33,8 @@ dotnet run
 5. Register User
 Open postman and enter the following url
 http://localhost:5152/api/Auth/register
-```bash
 example request
+```bash
 {
   "name": "Robinson Horta",
   "email": "hortarobinson@gmail.com",
@@ -42,8 +42,8 @@ example request
   "rol": "User"
 }
 ```
-```bash
 example response 
+```bash
 {
     "id": 2,
     "name": "Robinson Horta",
