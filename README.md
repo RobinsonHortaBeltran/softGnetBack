@@ -33,6 +33,7 @@ dotnet run
 5. Register User
 Open postman and enter the following url
 http://localhost:5152/api/Auth/register
+
 example request
 ```bash
 {
