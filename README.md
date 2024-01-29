@@ -41,7 +41,8 @@ example request
   "password": "admin",
   "rol": "User"
 }
-
+```
+```bash
 example response 
 {
     "id": 2,
