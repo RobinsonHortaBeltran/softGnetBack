@@ -11,7 +11,6 @@ Make sure you have the following installed before running the app:
 ## Configuración
 
 1. Clone repository:
-   ```bash
 git clone https://github.com/RobinsonHortaBeltran/softGnetBack.git
 cd sofGnetBack
   
