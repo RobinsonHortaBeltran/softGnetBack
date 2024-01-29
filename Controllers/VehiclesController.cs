@@ -48,18 +48,21 @@ namespace SoftGnet.Controllers
         // PUT: api/Vehicles/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVehicles(int id, Vehicles vehicles)
+        public async Task<IActionResult> PutVehicles(int id, [FromBody] Vehicles vehicles)
         {
             if (id != vehicles.Id)
             {
-                return BadRequest();
+                return BadRequest("El ID proporcionado no coincide con el ID del conductor.");
             }
 
-           await _vehiclesRepository.UpdateVehiclesAsync(vehicles);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _vehiclesRepository.UpdateVehiclesAsync(vehicles);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -69,7 +72,7 @@ namespace SoftGnet.Controllers
                 }
                 else
                 {
-                    throw;
+                    return StatusCode(500, "Error al actualizar el vehiculo.");
                 }
             }
 
@@ -96,8 +99,7 @@ namespace SoftGnet.Controllers
                 return NotFound();
             }
 
-            await _vehiclesRepository.DeleteVehiclesAsync(id);
-            await _context.SaveChangesAsync();
+            await _vehiclesRepository.DeleteVehiclesAsync(vehicles);
 
             return NoContent();
         }

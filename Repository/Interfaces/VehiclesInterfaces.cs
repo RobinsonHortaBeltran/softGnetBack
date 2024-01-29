@@ -6,7 +6,7 @@ public interface IVehicleInterface
 {
     Task CreateVehiclesAsync(Vehicles vehicle);
     Task UpdateVehiclesAsync(Vehicles vehicle);
-    Task DeleteVehiclesAsync(int vehicleId);
+    Task DeleteVehiclesAsync(Vehicles vehicle);
     Task<Vehicles> GetVehiclesAsyncById(int vehicleId);
     Task<List<Vehicles>> GetAllVehiclesAsync();
 }

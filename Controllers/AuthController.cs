@@ -11,9 +11,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using SoftGnet.Repository.Repositories;
+using Microsoft.AspNetCore.Cors;
 
 namespace SoftGnet.Controllers
 {
+    [EnableCors("_myAllowSpecificOrigins")]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

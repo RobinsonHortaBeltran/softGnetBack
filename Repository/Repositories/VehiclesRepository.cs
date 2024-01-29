@@ -18,10 +18,13 @@ namespace SoftGnet.Repository.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteVehiclesAsync(int vehicleId)
+        public async Task DeleteVehiclesAsync(Vehicles vehicle)
         {
-             await _context.Vehicles.FindAsync(vehicleId);
+            _context.Vehicles.Remove(vehicle);
+            await _context.SaveChangesAsync();
         }
+
+       
 
         public async Task<List<Vehicles>> GetAllVehiclesAsync()
         {

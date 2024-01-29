@@ -39,8 +39,8 @@ namespace SoftGnet.Migrations
                     b.Property<string>("City")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("Dod")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("Dod")
+                        .HasColumnType("date");
 
                     b.Property<string>("First_name")
                         .HasColumnType("text");
@@ -62,7 +62,7 @@ namespace SoftGnet.Migrations
                     b.ToTable("Drivers");
                 });
 
-            modelBuilder.Entity("SoftGnet.Models.Routes", b =>
+            modelBuilder.Entity("SoftGnet.Models.RoutesModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,12 +79,50 @@ namespace SoftGnet.Migrations
                     b.Property<int>("Driver_id")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("DriversId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Vehicle_id")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("VehiclesId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Routes");
+                    b.HasIndex("DriversId");
+
+                    b.HasIndex("VehiclesId");
+
+                    b.ToTable("RoutesModel");
+                });
+
+            modelBuilder.Entity("SoftGnet.Models.Schedules", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("DayWeek_num")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("From")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Route_id")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("To")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Schedules");
                 });
 
             modelBuilder.Entity("SoftGnet.Models.Users", b =>
@@ -138,6 +176,27 @@ namespace SoftGnet.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("SoftGnet.Models.RoutesModel", b =>
+                {
+                    b.HasOne("SoftGnet.Models.Drivers", null)
+                        .WithMany("Routes")
+                        .HasForeignKey("DriversId");
+
+                    b.HasOne("SoftGnet.Models.Vehicles", null)
+                        .WithMany("Routes")
+                        .HasForeignKey("VehiclesId");
+                });
+
+            modelBuilder.Entity("SoftGnet.Models.Drivers", b =>
+                {
+                    b.Navigation("Routes");
+                });
+
+            modelBuilder.Entity("SoftGnet.Models.Vehicles", b =>
+                {
+                    b.Navigation("Routes");
                 });
 #pragma warning restore 612, 618
         }

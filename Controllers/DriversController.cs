@@ -54,18 +54,21 @@ namespace SoftGnet.Controllers
         // PUT: api/Drivers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDrivers(int id, Drivers drivers)
+        public async Task<IActionResult> PutDrivers(int id, [FromBody] Drivers drivers)
         {
             if (id != drivers.Id)
             {
-                return BadRequest();
+                return BadRequest("El ID proporcionado no coincide con el ID del conductor.");
             }
 
-            _context.Entry(drivers).State = EntityState.Modified;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _driversRepository.UpdateDriverAsync(drivers);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -75,11 +78,11 @@ namespace SoftGnet.Controllers
                 }
                 else
                 {
-                    throw;
+                    return StatusCode(500, "Error al actualizar el conductor.");
                 }
             }
 
-            return NoContent();
+            return Ok(drivers);
         }
 
         // POST: api/Drivers
@@ -104,7 +107,7 @@ namespace SoftGnet.Controllers
             }
 
             _context.Drivers.Remove(drivers);
-            await _context.SaveChangesAsync();
+           
 
             return NoContent();
         }

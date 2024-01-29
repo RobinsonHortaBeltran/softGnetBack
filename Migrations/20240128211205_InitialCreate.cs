@@ -21,7 +21,7 @@ namespace SoftGnet.Migrations
                     Last_name = table.Column<string>(type: "text", nullable: true),
                     First_name = table.Column<string>(type: "text", nullable: true),
                     Ssn = table.Column<string>(type: "text", nullable: true),
-                    Dod = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Dod = table.Column<DateOnly>(type: "date", nullable: false),
                     Address = table.Column<string>(type: "text", nullable: true),
                     City = table.Column<string>(type: "text", nullable: true),
                     Zip = table.Column<string>(type: "text", nullable: true),
@@ -34,19 +34,20 @@ namespace SoftGnet.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Routes",
+                name: "Schedules",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    Driver_id = table.Column<int>(type: "integer", nullable: false),
-                    Vehicle_id = table.Column<int>(type: "integer", nullable: false),
+                    Route_id = table.Column<int>(type: "integer", nullable: false),
+                    DayWeek_num = table.Column<int>(type: "integer", nullable: false),
+                    From = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    To = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Active = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Routes", x => x.Id);
+                    table.PrimaryKey("PK_Schedules", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,19 +82,60 @@ namespace SoftGnet.Migrations
                 {
                     table.PrimaryKey("PK_Vehicles", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "RoutesModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    Driver_id = table.Column<int>(type: "integer", nullable: false),
+                    Vehicle_id = table.Column<int>(type: "integer", nullable: false),
+                    Active = table.Column<bool>(type: "boolean", nullable: false),
+                    DriversId = table.Column<int>(type: "integer", nullable: true),
+                    VehiclesId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoutesModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RoutesModel_Drivers_DriversId",
+                        column: x => x.DriversId,
+                        principalTable: "Drivers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_RoutesModel_Vehicles_VehiclesId",
+                        column: x => x.VehiclesId,
+                        principalTable: "Vehicles",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoutesModel_DriversId",
+                table: "RoutesModel",
+                column: "DriversId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoutesModel_VehiclesId",
+                table: "RoutesModel",
+                column: "VehiclesId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Drivers");
+                name: "RoutesModel");
 
             migrationBuilder.DropTable(
-                name: "Routes");
+                name: "Schedules");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Drivers");
 
             migrationBuilder.DropTable(
                 name: "Vehicles");

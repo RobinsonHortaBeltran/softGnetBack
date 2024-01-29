@@ -6,7 +6,7 @@ public class Drivers{
     public string? Last_name { get; set; }
     public string? First_name { get; set; }
     public string? Ssn { get; set; }
-    public DateTime Dod { get; set; } = DateTime.UtcNow;
+    public DateOnly Dod { get; set; } = DateOnly.FromDateTime(DateTime.UtcNow);
     public string? Address { get; set; }
     public string? City { get; set; }
     public string? Zip { get; set; }
